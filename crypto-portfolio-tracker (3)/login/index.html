@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    
+</head>
+<body>
+    <div class="form-box">
+        <h1 class="title">Sign Up</h1>
+        <form>
+            <div class="input-group">
+                <div class="input-field namefield">
+                    <span class="material-symbols-outlined">person</span>
+                    <input type="text" placeholder="Name">
+                </div>
+                <div class="input-field">
+                    <span class="material-symbols-outlined">mail</span>
+                    <input type="email" placeholder="Email">
+                </div>
+                <div class="input-field">
+                    <span class="material-symbols-outlined">lock</span>
+                    <input type="password" placeholder="Password">
+                </div>
+                <p class="text">Forgot Password<a href="#" class="click-here">Click Here!</a></p>
+            </div>
+            <div class="btn-field">
+                <button type="button" class="signuptn" onclick="SIGNINSUCCESSFULL">Sign Up</button>
+                <button type="button" class="signinbtn disable">Sign In</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let signUpBtn = document.querySelector('.signuptn');
+            let signInBtn = document.querySelector('.signinbtn');
+            let nameField = document.querySelector('.namefield');
+            let forgotPasswordText = document.querySelector('.text');
+            let signUpTitle = document.querySelector('.title');
+            let clickHereLink = document.querySelector('.click-here');
+
+            signInBtn.addEventListener('click', () => {
+                nameField.style.display = "none";
+                forgotPasswordText.style.display = "block";
+                signUpTitle.textContent = "Sign In";
+                clickHereLink.style.display = "block";
+                signInBtn.classList.add('disable');
+                signUpBtn.classList.remove('disable');
+            });
+
+            signUpBtn.addEventListener('click', () => {
+                nameField.style.display = "flex";
+                forgotPasswordText.style.display = "none";
+                signUpTitle.textContent = "Sign Up";
+                clickHereLink.style.display = "none";
+                signUpBtn.classList.add('disable');
+                signInBtn.classList.remove('disable');
+            });
+        });
+    </script>
+</body>
+</html>
